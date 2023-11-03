@@ -284,28 +284,27 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 
 #define YY_NUM_RULES 4
 #define YY_END_OF_BUFFER 5
-static yyconst short int yy_accept[12] =
+static yyconst short int yy_accept[9] =
     {   0,
-        0,    0,    5,    4,    1,    2,    1,    3,    2,    3,
-        0
+        0,    0,    5,    3,    4,    1,    2,    0
     } ;
 
 static yyconst int yy_ec[256] =
     {   0,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    2,    1,    1,    1,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    1,    1,    1,
-        1,    1,    1,    1,    4,    5,    5,    5,    4,    5,
-        5,    5,    4,    5,    5,    5,    5,    5,    4,    5,
-        5,    5,    5,    5,    4,    5,    5,    5,    5,    5,
-        1,    1,    1,    1,    1,    1,    4,    5,    5,    5,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    3,    4,    4,    4,    3,    4,
+        4,    4,    3,    4,    4,    4,    4,    4,    3,    4,
+        4,    4,    4,    4,    3,    4,    4,    4,    4,    4,
+        1,    1,    1,    1,    1,    1,    3,    4,    4,    4,
 
-        4,    5,    5,    5,    4,    5,    5,    5,    5,    5,
-        4,    5,    5,    5,    5,    5,    4,    5,    5,    5,
-        5,    5,    1,    1,    1,    1,    1,    1,    1,    1,
+        3,    4,    4,    4,    3,    4,    4,    4,    4,    4,
+        3,    4,    4,    4,    4,    4,    3,    4,    4,    4,
+        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -322,33 +321,29 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst int yy_meta[6] =
+static yyconst int yy_meta[5] =
     {   0,
-        1,    1,    2,    3,    3
+        1,    1,    1,    1
     } ;
 
-static yyconst short int yy_base[14] =
+static yyconst short int yy_base[9] =
     {   0,
-        0,    0,    8,    9,    9,    0,    0,    0,    0,    0,
-        9,    5,    3
+        0,    0,    5,    6,    6,    6,    6,    6
     } ;
 
-static yyconst short int yy_def[14] =
+static yyconst short int yy_def[9] =
     {   0,
-       11,    1,   11,   11,   11,   12,   13,   13,   12,   13,
-        0,   11,   11
+        8,    1,    8,    8,    8,    8,    8,    0
     } ;
 
-static yyconst short int yy_nxt[15] =
+static yyconst short int yy_nxt[11] =
     {   0,
-        4,    5,    6,    7,    8,   10,    9,   11,    3,   11,
-       11,   11,   11,   11
+        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
     } ;
 
-static yyconst short int yy_chk[15] =
+static yyconst short int yy_chk[11] =
     {   0,
-        1,    1,    1,    1,    1,   13,   12,    3,   11,   11,
-       11,   11,   11,   11
+        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -362,11 +357,11 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "CheckChar.lex"
+#line 1 "Char.l"
 #define INITIAL 0
-#line 2 "CheckChar.lex"
+#line 2 "Char.l"
 #include <stdio.h>
-#line 370 "lex.yy.c"
+#line 365 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -517,10 +512,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 5 "CheckChar.lex"
+#line 5 "Char.l"
 
 
-#line 524 "lex.yy.c"
+#line 519 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -571,13 +566,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 12 )
+				if ( yy_current_state >= 9 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 9 );
+		while ( yy_base[yy_current_state] != 6 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -605,31 +600,25 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "CheckChar.lex"
-{
-    printf("%s is a vowel.\n", yytext);
-}
+#line 7 "Char.l"
+{ printf("%c is a Vowel.\n", yytext[0]); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 11 "CheckChar.lex"
-{
-    printf("%s is a digit.\n", yytext);
-}
+#line 8 "Char.l"
+{ printf("%c is a Consonant.\n", yytext[0]); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 15 "CheckChar.lex"
-{
-    printf("%s is a word.\n", yytext);
-}
+#line 9 "Char.l"
+{ printf("%c is not an Alphabetic character.\n", yytext[0]); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "CheckChar.lex"
+#line 11 "Char.l"
 ECHO;
 	YY_BREAK
-#line 633 "lex.yy.c"
+#line 622 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -921,7 +910,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 12 )
+			if ( yy_current_state >= 9 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -956,11 +945,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 12 )
+		if ( yy_current_state >= 9 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 11);
+	yy_is_jam = (yy_current_state == 8);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1515,20 +1504,14 @@ int main()
 	return 0;
 	}
 #endif
-#line 19 "CheckChar.lex"
+#line 11 "Char.l"
 
-
-int main(void) {
-    yylex();
-    return 0;
-}
 
 int yywrap() {
     return 1;
 }
 
-/* flex CheckChar.lex
-gcc lex.yy.c
-./a
-
-*/
+int main() {
+    yylex();
+    return 0;
+}
