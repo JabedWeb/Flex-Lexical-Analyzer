@@ -27,7 +27,7 @@ int yywrap() {
     return 1;
 }
 
-/* flex CheckChar.lex
+/* flex word.lex
 gcc lex.yy.c
 ./a
 
