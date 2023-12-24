@@ -2,7 +2,7 @@
 %{
    #include "cal.tab.h"
 %}
-delim [\t]
+delim [ \t]
 ws {delim}+
 digit [0-9]
 number ({digit}+)
@@ -13,6 +13,8 @@ id ({us}|{letter})({letter}|{us}|{digit})*
 {ws} {}
 {number} {yylval = atoi(yytext); return(NUM);}
 {id} {return(ID);}
+"%"  {return(MODD);}
+"=="  {return(EQ);}
 "="  {return(ASSIGN);}
 ";"  {return(SEMI);}
 "+" { return(ADD); }
