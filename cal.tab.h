@@ -46,10 +46,14 @@ extern int yydebug;
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     VOWEL = 258,
-     NUMBER = 259,
-     Word = 260,
-     ADD = 261
+     NUM = 258,
+     ADD = 259,
+     SUB = 260,
+     MUL = 261,
+     DIV = 262,
+     ID = 263,
+     ASSIGN = 264,
+     SEMI = 265
    };
 #endif
 

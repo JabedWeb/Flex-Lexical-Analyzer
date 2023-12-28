@@ -2,22 +2,21 @@
 %{
    #include "cal.tab.h"
 %}
-
+delim [\t]
+ws {delim}+
+digit [0-9]
+number ({digit}+)
+letter [A-Za-z]
+us [_]
+id ({us}|{letter})({letter}|{us}|{digit})*
 %%
-[a,e,i,o,u,A,E,I,O,U] {
-   return VOWEL;
-}
-
-[0-9]+ {
-   yylval = atoi(yytext);
-   return NUMBER;
-}
-
-[A-Za-z]+ {
-   return Word;
-}
-
-[ \t\n] {
-   /* ignore whitespace */
-}
+{ws} {}
+{number} {yylval = atoi(yytext); return(NUM);}
+{id} {return(ID);}
+"="  {return(ASSIGN);}
+";"  {return(SEMI);}
+"+" { return(ADD); }
+"-" {return(SUB); }
+"*" { return(MUL); }
+"/" {return(DIV); }
 %%
