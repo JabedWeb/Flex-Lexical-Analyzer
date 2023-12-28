@@ -1,0 +1,20 @@
+why we use .l file 
+
+- to generate the token
+
+
+we can get yy.c file for the .l file ( we we pass lexical analysis then we get yy.c file )
+
+
+.y ( yet file) ( target to create purser )
+
+
+header option 
+product /rule 
+main function 
+
+
+rule  {production }
+
+
+associative / presidency ( left associative )

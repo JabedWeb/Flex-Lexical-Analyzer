@@ -12,8 +12,6 @@ int yylex();
 %start cal 
 %left ADD SUB
 %left MUL DIV MODD
-/* %left MODD */
-
 %%
 
 cal: ID MODD NUM EQ NUM
