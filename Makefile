@@ -26,3 +26,9 @@ lexer: lexer.l parser.y
 	lex lexer.l
 	gcc parser.tab.c lex.yy.c
 	a <input.txt> output.txt	
+
+factorial: factorial.l factorial.y
+	yacc -d factorial.y
+	lex factorial.l
+	gcc factorial.tab.c lex.yy.c
+	a <input.txt> output.txt	
