@@ -1,7 +1,8 @@
-%option noyywrap
 %{
 #include "parser.tab.h"
+int yylineno = 1;
 %}
+%option noyywrap
 
 delim [ \t\n]       
 ws {delim}+
@@ -41,5 +42,6 @@ fconst {digit}* "."{digit}+
 ")"|"}"                    { return RIGHT_PAREN; }
 "'"([^']*)"'"             { return CHAR; }
 \"[^\"]*\"                { return STRING; }
+"\n"                      { yylineno+=1; }
 .                        {return ERROR;}
 %%

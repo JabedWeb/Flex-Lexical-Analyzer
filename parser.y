@@ -12,11 +12,7 @@ WS RELATIONAL ASSIGN INCREMENT  ERROR
 %%
 
 program
-    : INCLUDE header calculator main
-    ;
-
-header
-    : '<' ID '>'
+    : INCLUDE calculator main
     ;
 
 calculator
@@ -37,6 +33,10 @@ statement
     | printf
     | scanf
     | switch_statement
+    | return_statement
+    ;
+return_statement
+    : RETURN NUMBER SEMICOLON
     ;
 
 variable
@@ -82,5 +82,7 @@ int main() {
 }
 
 void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
+    extern int yylineno; // Provided by Flex
+    extern char *yytext; // Provided by Flex
+    fprintf(stderr, "Error: %s at line %d near '%s'\n", s, yylineno, yytext);
 }
