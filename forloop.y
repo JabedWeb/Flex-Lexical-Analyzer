@@ -35,5 +35,4 @@ int main(){
 
 void yyerror(char* s){
     fprintf(stderr, "Error= %s", s);
-
 }

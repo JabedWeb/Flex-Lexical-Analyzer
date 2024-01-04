@@ -1,7 +1,1 @@
-factor->num: 2
-factor->num: 3
-exp+term: 5
-factor->num: 5
-exp-term: 0
-Final Result: 0
 Parsing Successful
