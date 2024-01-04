@@ -46,45 +46,35 @@ extern int yydebug;
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     UNSIGNED = 258,
-     LONG = 259,
-     INT = 260,
-     IF = 261,
-     RETURN = 262,
-     ELSE = 263,
-     PRINTF = 264,
-     SCANF = 265,
-     MAIN = 266,
-     STRING = 267,
+     INCLUDE = 258,
+     STDIO_H = 259,
+     UNSIGNED = 260,
+     LONG_LONG = 261,
+     INT = 262,
+     IF = 263,
+     RETURN = 264,
+     PRINTF = 265,
+     SCANF = 266,
+     MAIN = 267,
      NUMBER = 268,
-     ID = 269,
-     SEMICOLON = 270,
-     LPAREN = 271,
-     RPAREN = 272,
-     LBRACE = 273,
-     RBRACE = 274,
+     IDENTIFIER = 269,
+     LPAREN = 270,
+     RPAREN = 271,
+     LBRACE = 272,
+     RBRACE = 273,
+     SEMICOLON = 274,
      COMMA = 275,
      ASSIGN = 276,
      ASTERISK = 277,
      MINUS = 278,
-     AMPERSAND = 279
+     AMPERSAND = 279,
+     STRING = 280
    };
 #endif
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE
-{
-/* Line 2058 of yacc.c  */
-#line 7 "factorial.y"
-
-    int num;
-    char* str;
-
-
-/* Line 2058 of yacc.c  */
-#line 87 "factorial.tab.h"
-} YYSTYPE;
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

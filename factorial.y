@@ -4,72 +4,75 @@ void yyerror(const char *s);
 int yylex();
 %}
 
-%union {
-    int num;
-    char* str;
-}
+%token INCLUDE STDIO_H UNSIGNED LONG_LONG INT IF RETURN PRINTF SCANF MAIN NUMBER IDENTIFIER
+%token LPAREN RPAREN LBRACE RBRACE SEMICOLON COMMA ASSIGN ASTERISK MINUS AMPERSAND STRING
 
-%token UNSIGNED LONG INT IF RETURN ELSE PRINTF SCANF MAIN STRING
-%token <num> NUMBER
-%token <str> ID
-%token SEMICOLON LPAREN RPAREN LBRACE RBRACE COMMA ASSIGN ASTERISK MINUS AMPERSAND
+%start program
 
 %%
 
 program
-    : function MAIN LPAREN RPAREN compound_statement
+    : include_header function_definition main_function
     ;
 
-function
-    : UNSIGNED LONG LONG ID LPAREN INT ID RPAREN compound_statement
+include_header
+    : INCLUDE STDIO_H
+    ;
+
+function_definition
+    : UNSIGNED LONG_LONG factorial_function
+    ;
+
+factorial_function
+    : INT IDENTIFIER LPAREN INT IDENTIFIER RPAREN compound_statement
+    ;
+
+main_function
+    : INT MAIN LPAREN RPAREN compound_statement
     ;
 
 compound_statement
-    : LBRACE statement_list RBRACE
+    : LBRACE statements RBRACE
     ;
 
-statement_list
+statements
     : statement
-    | statement_list statement
+    | statements statement
     ;
 
 statement
-    : IF LPAREN condition RPAREN RETURN NUMBER SEMICOLON
-    | RETURN ID ASTERISK function_call SEMICOLON
-    | declaration
-    | printf_call
-    | scanf_call
+    : type IDENTIFIER SEMICOLON
+    | PRINTF LPAREN format_specifier COMMA IDENTIFIER RPAREN SEMICOLON
+    | SCANF LPAREN format_specifier COMMA AMPERSAND IDENTIFIER RPAREN SEMICOLON
+    | IF LPAREN condition RPAREN RETURN NUMBER SEMICOLON
+    | RETURN IDENTIFIER ASTERISK factorial_call SEMICOLON
+    ;
+
+factorial_call
+    : IDENTIFIER LPAREN IDENTIFIER MINUS NUMBER RPAREN
+    ;
+
+type
+    : UNSIGNED LONG_LONG
+    | INT
     ;
 
 condition
-    : ID ASSIGN NUMBER
+    : IDENTIFIER ASSIGN NUMBER
     ;
 
-function_call
-    : ID LPAREN ID MINUS NUMBER RPAREN
-    ;
-
-declaration
-    : INT ID SEMICOLON
-    | INT ID ASSIGN function_call SEMICOLON
-    ;
-
-printf_call
-    : PRINTF LPAREN STRING COMMA ID COMMA ID RPAREN SEMICOLON
-    ;
-
-scanf_call
-    : SCANF LPAREN STRING COMMA AMPERSAND ID RPAREN SEMICOLON
+format_specifier
+    : STRING
     ;
 
 %%
 
-int main() {
-    yyparse();
-    printf("Parsing complete\n");
-    return 0;
-}
-
 void yyerror(const char *s) {
     fprintf(stderr, "Error: %s\n", s);
+}
+
+int main() {
+    yyparse();
+    printf("program is syntactically correct\n");
+    return 0;
 }
