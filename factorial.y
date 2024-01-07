@@ -24,7 +24,7 @@ function_definition
     ;
 
 factorial_function
-    : INT IDENTIFIER LPAREN INT IDENTIFIER RPAREN compound_statement
+    : IDENTIFIER LPAREN INT IDENTIFIER RPAREN compound_statement
     ;
 
 main_function
@@ -66,13 +66,13 @@ format_specifier
     ;
 
 %%
-
-void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
-}
-
 int main() {
     yyparse();
     printf("program is syntactically correct\n");
     return 0;
 }
+
+void yyerror(const char *s) {
+    fprintf(stderr, "Error: %s\n", s);
+}
+

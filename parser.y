@@ -1,11 +1,10 @@
 %{
 #include <stdio.h>
-void yyerror(const char *s);
+void yyerror(char *s);
 int yylex();
 %}
 
-%token INCLUDE TYPE VOID MAIN PRINTF SCANF BREAK CONTROL ID NUMBER  SEMICOLON ARITHMETIC LEFT_PAREN RIGHT_PAREN CHAR STRING COMMA BITWISE CASE COLON RETURN LOGICAL CONTINUE
-WS RELATIONAL ASSIGN INCREMENT  ERROR
+%token INCLUDE TYPE VOID MAIN PRINTF SCANF BREAK CONTROL ID NUMBER  SEMICOLON ARITHMETIC LEFT_PAREN RIGHT_PAREN CHAR STRING COMMA BITWISE CASE COLON RETURN LOGICAL CONTINUE WS RELATIONAL ASSIGN INCREMENT  ERROR
 
 %start program 
 
@@ -62,7 +61,7 @@ case_list
     ;
 
 case_clause
-    : CASE STRING COLON printfN
+    : CASE CHAR COLON printfN
     ;
 
 printfN
@@ -75,14 +74,12 @@ main
 
 %%
 
-int main() {
+int main(){
     yyparse();
     printf("Parsing Successful\n");
-    return 0;
 }
 
-void yyerror(const char *s) {
-    extern int yylineno; // Provided by Flex
-    extern char *yytext; // Provided by Flex
-    fprintf(stderr, "Error: %s at line %d near '%s'\n", s, yylineno, yytext);
+void yyerror(char* s){
+    fprintf(stderr, "Error= %s", s);
+
 }

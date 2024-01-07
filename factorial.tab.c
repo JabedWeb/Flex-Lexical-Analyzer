@@ -1627,13 +1627,13 @@ yyreturn:
 /* Line 2055 of yacc.c  */
 #line 68 "factorial.y"
 
-
-void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
-}
-
 int main() {
     yyparse();
     printf("program is syntactically correct\n");
     return 0;
 }
+
+void yyerror(const char *s) {
+    fprintf(stderr, "Error: %s\n", s);
+}
+

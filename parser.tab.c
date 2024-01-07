@@ -66,7 +66,7 @@
 #line 1 "parser.y"
 
 #include <stdio.h>
-void yyerror(const char *s);
+void yyerror(char *s);
 int yylex();
 
 /* Line 371 of yacc.c  */
@@ -467,9 +467,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    15,    15,    19,    23,    27,    28,    32,    33,    34,
-      35,    36,    39,    43,    44,    48,    52,    56,    60,    61,
-      65,    69,    73
+       0,    14,    14,    18,    22,    26,    27,    31,    32,    33,
+      34,    35,    38,    42,    43,    47,    51,    55,    59,    60,
+      64,    68,    72
 };
 #endif
 
@@ -1642,17 +1642,15 @@ yyreturn:
 
 
 /* Line 2055 of yacc.c  */
-#line 76 "parser.y"
+#line 75 "parser.y"
 
 
-int main() {
+int main(){
     yyparse();
     printf("Parsing Successful\n");
-    return 0;
 }
 
-void yyerror(const char *s) {
-    extern int yylineno; // Provided by Flex
-    extern char *yytext; // Provided by Flex
-    fprintf(stderr, "Error: %s at line %d near '%s'\n", s, yylineno, yytext);
+void yyerror(char* s){
+    fprintf(stderr, "Error= %s", s);
+
 }
